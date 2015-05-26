@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AH_ODS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Err_Sales">
+          <Key>
+            <PropertyRef Name="Serial" />
+          </Key>
+          <Property Name="Serial" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExtSerial" Type="varchar" MaxLength="100" />
+          <Property Name="DateTime" Type="varchar" MaxLength="100" />
+          <Property Name="ErrorDesc" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="JT">
+          <Key>
+            <PropertyRef Name="Serial" />
+          </Key>
+          <Property Name="Serial" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExtSerial" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EnvelopeCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LineDescription" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Line" Type="int" Nullable="false" />
+          <Property Name="Lines" Type="int" Nullable="false" />
+          <Property Name="Branch_COA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AQ_COA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AQ_Branch" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="RecordType" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+          <Property Name="PostDate" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="AQ_PostStatus" Type="int" Nullable="false" />
+          <Property Name="AQ_StatusDate" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DTS" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JT_Temp">
+          <Key>
+            <PropertyRef Name="Serial" />
+          </Key>
+          <Property Name="Serial" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExtSerial" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EnvelopeCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Line" Type="int" Nullable="false" />
+          <Property Name="Lines" Type="int" Nullable="false" />
+          <Property Name="LineDescription" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Branch_COA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AQ_COA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AQ_Branch" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="RecordType" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+          <Property Name="PostDate" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="AQ_PostStatus" Type="int" Nullable="false" />
+          <Property Name="AQ_StatusDate" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DTS" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LocalBranch">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AQ_Branch" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sales">
+          <Key>
+            <PropertyRef Name="Serial" />
+          </Key>
+          <Property Name="Serial" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExtSerial" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerRefNbr" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="Customer" Type="varchar" MaxLength="50" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="AQ_Branch" Type="varchar" MaxLength="50" />
+          <Property Name="AQ_COA" Type="varchar" MaxLength="50" />
+          <Property Name="LineSubAccount" Type="varchar" MaxLength="50" />
+          <Property Name="LineTaxCategory" Type="varchar" MaxLength="50" />
+          <Property Name="LineQuantity" Type="int" />
+          <Property Name="LineUnitPrice" Type="float" />
+          <Property Name="AQ_PostStatus" Type="int" />
+          <Property Name="AQ_StatusDate" Type="varchar" MaxLength="50" />
+          <Property Name="DTS" Type="varchar" MaxLength="50" />
+          <Property Name="LineDescription" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="AH_ODS_DBModelStoreContainer">
+          <EntitySet Name="Err_Sales" EntityType="Self.Err_Sales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JT" EntityType="Self.JT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JT_Temp" EntityType="Self.JT_Temp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LocalBranch" EntityType="Self.LocalBranch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AH_ODS_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Err_Sales">
+          <Key>
+            <PropertyRef Name="Serial" />
+          </Key>
+          <Property Name="Serial" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExtSerial" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ErrorDesc" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Sale">
+          <Key>
+            <PropertyRef Name="Serial" />
+          </Key>
+          <Property Name="Serial" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExtSerial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerRefNbr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Customer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="AQ_Branch" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AQ_COA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineSubAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineTaxCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineQuantity" Type="Int32" />
+          <Property Name="LineUnitPrice" Type="Double" />
+          <Property Name="AQ_PostStatus" Type="Int32" />
+          <Property Name="AQ_StatusDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DTS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="AH_ODS_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Err_Sales" EntityType="Self.Err_Sales" />
+          <EntitySet Name="Sales" EntityType="Self.Sale" />
+          <EntitySet Name="JTs" EntityType="AH_ODS_DBModel.JT" />
+          <EntitySet Name="JT_Temp" EntityType="AH_ODS_DBModel.JT_Temp" />
+          <EntitySet Name="LocalBranches" EntityType="AH_ODS_DBModel.LocalBranch" />
+        </EntityContainer>
+        <EntityType Name="JT">
+          <Key>
+            <PropertyRef Name="Serial" />
+          </Key>
+          <Property Name="Serial" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExtSerial" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EnvelopeCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Line" Type="Int32" Nullable="false" />
+          <Property Name="Lines" Type="Int32" Nullable="false" />
+          <Property Name="Branch_COA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AQ_COA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AQ_Branch" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="RecordType" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <Property Name="PostDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AQ_PostStatus" Type="Int32" Nullable="false" />
+          <Property Name="AQ_StatusDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DTS" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineDescription" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="JT_Temp">
+          <Key>
+            <PropertyRef Name="Serial" />
+          </Key>
+          <Property Name="Serial" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExtSerial" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EnvelopeCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Line" Type="Int32" Nullable="false" />
+          <Property Name="Lines" Type="Int32" Nullable="false" />
+          <Property Name="Branch_COA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AQ_COA" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AQ_Branch" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="RecordType" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <Property Name="PostDate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AQ_PostStatus" Type="Int32" Nullable="false" />
+          <Property Name="AQ_StatusDate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DTS" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LineDescription" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LocalBranch">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AQ_Branch" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AH_ODS_DBModelStoreContainer" CdmEntityContainer="AH_ODS_DBEntities">
+          <EntitySetMapping Name="Err_Sales">
+            <EntityTypeMapping TypeName="AH_ODS_DBModel.Err_Sales">
+              <MappingFragment StoreEntitySet="Err_Sales">
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="ExtSerial" ColumnName="ExtSerial" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="ErrorDesc" ColumnName="ErrorDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sales">
+            <EntityTypeMapping TypeName="AH_ODS_DBModel.Sale">
+              <MappingFragment StoreEntitySet="Sales">
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="ExtSerial" ColumnName="ExtSerial" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CustomerRefNbr" ColumnName="CustomerRefNbr" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="AQ_Branch" ColumnName="AQ_Branch" />
+                <ScalarProperty Name="AQ_COA" ColumnName="AQ_COA" />
+                <ScalarProperty Name="LineSubAccount" ColumnName="LineSubAccount" />
+                <ScalarProperty Name="LineTaxCategory" ColumnName="LineTaxCategory" />
+                <ScalarProperty Name="LineQuantity" ColumnName="LineQuantity" />
+                <ScalarProperty Name="LineUnitPrice" ColumnName="LineUnitPrice" />
+                <ScalarProperty Name="AQ_PostStatus" ColumnName="AQ_PostStatus" />
+                <ScalarProperty Name="AQ_StatusDate" ColumnName="AQ_StatusDate" />
+                <ScalarProperty Name="DTS" ColumnName="DTS" />
+                <ScalarProperty Name="LineDescription" ColumnName="LineDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JTs">
+            <EntityTypeMapping TypeName="AH_ODS_DBModel.JT">
+              <MappingFragment StoreEntitySet="JT">
+                <ScalarProperty Name="LineDescription" ColumnName="LineDescription" />
+                <ScalarProperty Name="DTS" ColumnName="DTS" />
+                <ScalarProperty Name="AQ_StatusDate" ColumnName="AQ_StatusDate" />
+                <ScalarProperty Name="AQ_PostStatus" ColumnName="AQ_PostStatus" />
+                <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="RecordType" ColumnName="RecordType" />
+                <ScalarProperty Name="AQ_Branch" ColumnName="AQ_Branch" />
+                <ScalarProperty Name="AQ_COA" ColumnName="AQ_COA" />
+                <ScalarProperty Name="Branch_COA" ColumnName="Branch_COA" />
+                <ScalarProperty Name="Lines" ColumnName="Lines" />
+                <ScalarProperty Name="Line" ColumnName="Line" />
+                <ScalarProperty Name="EnvelopeCode" ColumnName="EnvelopeCode" />
+                <ScalarProperty Name="ExtSerial" ColumnName="ExtSerial" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JT_Temp">
+            <EntityTypeMapping TypeName="AH_ODS_DBModel.JT_Temp">
+              <MappingFragment StoreEntitySet="JT_Temp">
+                <ScalarProperty Name="LineDescription" ColumnName="LineDescription" />
+                <ScalarProperty Name="DTS" ColumnName="DTS" />
+                <ScalarProperty Name="AQ_StatusDate" ColumnName="AQ_StatusDate" />
+                <ScalarProperty Name="AQ_PostStatus" ColumnName="AQ_PostStatus" />
+                <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="RecordType" ColumnName="RecordType" />
+                <ScalarProperty Name="AQ_Branch" ColumnName="AQ_Branch" />
+                <ScalarProperty Name="AQ_COA" ColumnName="AQ_COA" />
+                <ScalarProperty Name="Branch_COA" ColumnName="Branch_COA" />
+                <ScalarProperty Name="Lines" ColumnName="Lines" />
+                <ScalarProperty Name="Line" ColumnName="Line" />
+                <ScalarProperty Name="EnvelopeCode" ColumnName="EnvelopeCode" />
+                <ScalarProperty Name="ExtSerial" ColumnName="ExtSerial" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocalBranches">
+            <EntityTypeMapping TypeName="AH_ODS_DBModel.LocalBranch">
+              <MappingFragment StoreEntitySet="LocalBranch">
+                <ScalarProperty Name="AQ_Branch" ColumnName="AQ_Branch" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
