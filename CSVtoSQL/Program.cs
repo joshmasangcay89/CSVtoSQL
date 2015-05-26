@@ -192,19 +192,21 @@ namespace CSVtoSQL
                                             con.EnvelopeCode
                                             + con.Branch_COA
                                             + con.AQ_COA
-                                            + con.AQ_Branch; ; 
-                                            //+ con.AQ_PostStatus;
+                                            + con.AQ_Branch;
+                                            //+ Convert.ToInt32(con.AQ_PostStatus);
 
-
+                    int i = 0;
                     foreach (var Record in csvFilteredRecord)
                     {
-                        Console.WriteLine(Record.Key
+                        Console.WriteLine(Record.Key + i);
                                 //+ Record.Branch_COA
                                 //+ Record.AQ_COA
-                                ////+ Record.Amount
+                                //+ Record.Amount
                                 //+ Record.AQ_PostStatus
-                            );
+                        i++;
                     }
+                    Console.WriteLine("Total: " + i);
+                    Console.ReadKey();
                 }
                 catch (Exception e)
                 {
